@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Recommendation System</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Movie Recommendation System</h1>
+    <h2>byreyhan;</h2>
+    <form action="/recommendations" method="GET">
+      <!-- Choice of method -->
+      <label for="method">Method:</label>
+      <select id="method" name="method">
+        <option value="" disabled selected>Choose Method</option>
+        <!-- Default option -->
+        <option value="demographic">Demographic Filtering</option>
+        <option value="content">Content Based Filtering</option></select
+      ><br /><br />
+
+      <!-- Demographic Filtering -->
+      <div id="demographic" class="filtering">
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" /><br /><br />
+        <label for="duration">Duration (min):</label>
+        <input type="text" id="duration" name="duration" /><br /><br />
+        <label for="year">Year Range:</label>
+        <input type="text" id="year" name="year" /><br /><br />
+      </div>
+
+      <!-- Content Based Filtering -->
+      <div id="content" class="filtering" style="display: none">
+        <label for="title">Favorite Movie:</label>
+        <input type="text" id="title" name="title" /><br /><br />
+      </div>
+      <button type="submit">Get Recommendations</button>
+    </form>
+
+    <script>
+      var methodSelect = document.getElementById("method");
+      var demographicDiv = document.getElementById("demographic");
+      var contentDiv = document.getElementById("content");
+
+      methodSelect.addEventListener("change", function () {
+        if (methodSelect.value === "demographic") {
+          demographicDiv.style.display = "block";
+          contentDiv.style.display = "none";
+        } else if (methodSelect.value === "content") {
+          demographicDiv.style.display = "none";
+          contentDiv.style.display = "block";
+        } else {
+          demographicDiv.style.display = "none";
+          contentDiv.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

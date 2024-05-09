@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Recommendations</title>
+    <style>
+      :root {
+        --clr-primary: #d0def2;
+        --clr-primary-light: #f3f8fe;
+        --clr-primary-dark: #a7bad3;
+        --clr-gray100: #f9fbff;
+        --clr-gray150: #f4f6fb;
+        --clr-gray200: #eef1f6;
+        --clr-gray300: #e1e5ee;
+        --clr-gray400: #767b91;
+        --clr-gray500: #4f546c;
+        --clr-gray600: #2a324b;
+        --clr-gray700: #161d34;
+        --radius: 0.2rem; 
+      }
+
+      :root {
+        --radius: 0.2rem;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Lato, sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--clr-gray500);
+        font-size: 0.9rem;
+        background-color: var(--clr-primary-light);
+        margin: 0; 
+        padding: 0; 
+      }
+
+      .table-container {
+        width: 80%;
+        max-height: 400px; 
+        overflow: auto; 
+        border-radius: 20px;
+      }
+
+      table {
+        border-spacing: 0; 
+        width: 100%;
+        text-align: left; 
+        background-color: white; 
+        border-radius: var(--radius); 
+        border-collapse: collapse;
+        box-shadow: 20px 20px 20px 5px;
+      }
+
+      th {
+        background-color: var(
+          --clr-primary
+        ); 
+        text-align: center; 
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-size: 0.7rem;
+        font-weight: 900;
+        padding: 0.75rem 2rem;
+        position: sticky; 
+        top: 0; 
+      }
+
+      th,
+      td {
+        padding: 1rem 2rem; 
+      }
+
+      td:first-child {
+        width: 10px; 
+      }
+
+      tr:nth-child(even) {
+        background-color: var(--clr-primary-light);
+      }
+
+      @media screen and (max-width: 600px) {
+        .table-container {
+          width: 100%;
+          max-width: none; 
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table-container">
+      {{ table | safe }}
+    </div>
+  </body>
+</html>
