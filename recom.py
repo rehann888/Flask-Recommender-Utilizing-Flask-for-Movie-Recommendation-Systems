@@ -43,5 +43,5 @@ def get_recommendations():
     return render_template('recommendations.html', table=recommendations_html)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='192.168.0.20')
+    app.run(debug=True)
 
